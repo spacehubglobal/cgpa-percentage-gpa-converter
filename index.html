@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--
+    SpaceHubGlobal GradeConvert - A CGPA, Percentage and GPA Converter
+    Copyright (C) 2026  Amal Benny
+
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program. If not, see <https://www.gnu.org/licenses/>.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CGPA to Percentage Calculator &amp; GPA Converter (10-Point, 4.0 Scale)</title>
+<meta name="description" content="Free CGPA to percentage, percentage to CGPA and Indian marks to 4.0 GPA converter. Instant results with formulas for CBSE, VTU and Mumbai University, plus study abroad tips.">
+<meta name="keywords" content="CGPA to percentage, percentage to CGPA, CGPA to GPA converter, percentage to GPA, 10 point CGPA to 4.0 GPA, CGPA calculator, GPA calculator for study abroad">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://spacehubglobal.github.io/cgpa-percentage-gpa-converter/">
+<meta property="og:url" content="https://spacehubglobal.github.io/cgpa-percentage-gpa-converter/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CGPA to Percentage &amp; GPA Converter – Free Online Calculator">
+<meta property="og:description" content="Convert CGPA, percentage and 4.0 GPA in one click. Formulas and FAQs included.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e4a52">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"CGPA, Percentage and GPA Converter","applicationCategory":"EducationalApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Free calculator to convert CGPA to percentage, percentage to CGPA and Indian marks to 4.0 GPA."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I convert CGPA to percentage?","acceptedAnswer":{"@type":"Answer","text":"For a 10-point CGPA, the common formula is Percentage = CGPA × 9.5 (CBSE). Some universities use their own formula, such as VTU: (CGPA − 0.75) × 10, and Mumbai University: 7.1 × CGPA + 11."}},
+{"@type":"Question","name":"How do I convert percentage to CGPA?","acceptedAnswer":{"@type":"Answer","text":"Divide the percentage by 9.5. For example, 76% ÷ 9.5 = 8.0 CGPA."}},
+{"@type":"Question","name":"How do I convert Indian percentage to a 4.0 GPA?","acceptedAnswer":{"@type":"Answer","text":"There is no single official formula. Many applicants use grade bands (for example, 85% and above ≈ 4.0, 75–79% ≈ 3.3). Foreign universities and credential evaluators such as WES may assess your marks differently, so always check the university’s own guidance."}},
+{"@type":"Question","name":"Which formula should I use for my university?","acceptedAnswer":{"@type":"Answer","text":"Use the formula printed on your university’s grade card or notified by its examination office. If none exists, apply for an official conversion letter."}},
+{"@type":"Question","name":"Is the result accepted for student visa and admission applications?","acceptedAnswer":{"@type":"Answer","text":"Treat the result as an estimate. Admission offices and visa processes rely on official transcripts and, where required, an evaluation report."}}
+]}
+</script>
+<style>
+:root{
+  --bg:#f7faf9; --surface:#ffffff; --ink:#12262a; --muted:#52666a; --line:#cfdcdb;
+  --brand:#0e4a52; --brand-ink:#ffffff; --accent:#f0a22e; --accent-ink:#2b1c00; --slip:#fff8e6; --slip-line:#e9d9a6;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1b1d; --surface:#16272a; --ink:#e8f1f0; --muted:#9db3b5; --line:#2a4044;
+  --brand:#5fc4cf; --brand-ink:#06242a; --accent:#f0b24f; --accent-ink:#2b1c00; --slip:#222014; --slip-line:#4a4220; color-scheme:dark;}}
+:root[data-theme="dark"]{--bg:#0f1b1d; --surface:#16272a; --ink:#e8f1f0; --muted:#9db3b5; --line:#2a4044;
+  --brand:#5fc4cf; --brand-ink:#06242a; --accent:#f0b24f; --accent-ink:#2b1c00; --slip:#222014; --slip-line:#4a4220; color-scheme:dark;}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;line-height:1.15;margin:0 0 .6em;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,5.5vw,3.4rem);font-weight:800;max-width:18ch}
+h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;margin-top:2.4em}
+h3{font-size:1.1rem;font-weight:700}
+p{max-width:68ch;margin:0 0 1em}
+a{color:var(--brand);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.top{padding:18px 0;border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font:800 1.05rem "Bricolage Grotesque",sans-serif;color:var(--ink);text-decoration:none}
+nav a{margin-left:18px;font-size:.95rem;color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--brand)}
+.hero{padding:44px 0 24px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.tool{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;margin:24px 0 8px}
+@media(max-width:780px){.tool{grid-template-columns:1fr}nav{display:none}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.modes button{font:600 .9rem "Public Sans",sans-serif;padding:9px 13px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+label{display:block;font-weight:600;font-size:.95rem;margin:14px 0 6px}
+input,select{width:100%;font:500 1.2rem "Public Sans",sans-serif;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.hint{font-size:.88rem;color:var(--muted);margin:8px 0 0}
+.slip{background:var(--slip);border:1.5px dashed var(--slip-line);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:center;min-height:220px}
+.slip small{color:var(--muted);font-size:.9rem}
+.big{font:800 clamp(2.6rem,8vw,4rem)/1 "Bricolage Grotesque",sans-serif;color:var(--ink);margin:6px 0 10px;word-break:break-word}
+.big span{font-size:.4em;font-weight:700;color:var(--muted);margin-left:6px}
+.formula{font-size:.92rem;color:var(--muted);margin:0}
+table{border-collapse:collapse;width:100%;font-size:.97rem}
+.scroll{overflow-x:auto;max-width:100%}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-weight:600;background:var(--surface)}
+.cta{margin-top:2.4em;background:var(--brand);color:var(--brand-ink);border-radius:16px;padding:26px}
+.cta h2{margin-top:0;color:inherit}
+.cta p{color:inherit}
+.cta a.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:700;text-decoration:none;padding:12px 18px;border-radius:10px}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:10px 0 0}
+footer{margin-top:56px;padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top">SpaceHub Global</a>
+  <nav aria-label="Page sections"><a href="#formulas">Formulas</a><a href="#table">Quick table</a><a href="#abroad">Study abroad</a><a href="#faq">FAQ</a></nav>
+</div></header>
+
+<main id="top">
+<div class="wrap">
+  <section class="hero">
+    <h1>CGPA, percentage and GPA converter </h1>
+    SpaceHubGlobal GradeConvert
+    <p class="lead">Convert your 10-point CGPA, percentage and 4.0 GPA in one step. Pick a conversion, enter your score and see the result with the formula used.</p>
+  </section>
+
+  <section class="tool" aria-label="CGPA percentage GPA calculator">
+    <div class="panel">
+      <div class="modes" role="group" aria-label="Choose conversion">
+        <button type="button" data-m="c2p" aria-pressed="true">CGPA to %</button>
+        <button type="button" data-m="p2c" aria-pressed="false">% to CGPA</button>
+        <button type="button" data-m="p2g" aria-pressed="false">% to 4.0 GPA</button>
+        <button type="button" data-m="c2g" aria-pressed="false">CGPA to 4.0 GPA</button>
+        <button type="button" data-m="g2p" aria-pressed="false">4.0 GPA to %</button>
+      </div>
+      <label for="val" id="vlabel">Your CGPA (out of 10)</label>
+      <input id="val" type="number" inputmode="decimal" step="any" min="0" placeholder="e.g. 8.2" autocomplete="off">
+      <div id="fwrap">
+        <label for="formula">University formula</label>
+        <select id="formula">
+          <option value="cbse">CBSE / general: CGPA × 9.5</option>
+          <option value="vtu">VTU: (CGPA − 0.75) × 10</option>
+          <option value="mu">Mumbai University: 7.1 × CGPA + 11</option>
+        </select>
+      </div>
+      <p class="hint" id="err" role="alert"></p>
+    </div>
+    <div class="slip" aria-live="polite">
+      <small id="rlabel">Percentage</small>
+      <div class="big" id="res">–</div>
+      <p class="formula" id="rform">Enter a value to see your result.</p>
+    </div>
+  </section>
+  <p class="hint">Results are estimates. For admissions and visas, rely on your official transcript and the university’s own rules.</p>
+
+  <h2 id="formulas">CGPA to percentage formulas</h2>
+  <p>Universities in India do not all use the same method. The most widely used formula comes from CBSE, but several universities publish their own. Always use the one printed on your grade card if it is available.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Conversion</th><th>Formula</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>CGPA to % (CBSE / general)</td><td>CGPA × 9.5</td><td>8.4 × 9.5 = 79.8%</td></tr>
+      <tr><td>CGPA to % (VTU)</td><td>(CGPA − 0.75) × 10</td><td>(8.4 − 0.75) × 10 = 76.5%</td></tr>
+      <tr><td>CGPA to % (Mumbai University)</td><td>7.1 × CGPA + 11</td><td>7.1 × 8.4 + 11 = 70.6%</td></tr>
+      <tr><td>% to CGPA</td><td>Percentage ÷ 9.5</td><td>76 ÷ 9.5 = 8.0</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="table">Percentage to 4.0 GPA quick table</h2>
+  <p>This table shows the grade bands our calculator uses for an indicative 4.0 GPA. Evaluation agencies and universities may apply different scales.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Percentage</th><th>4.0 GPA</th><th>Percentage</th><th>4.0 GPA</th></tr></thead>
+    <tbody>
+      <tr><td>85 – 100</td><td>4.0</td><td>60 – 64</td><td>2.3</td></tr>
+      <tr><td>80 – 84</td><td>3.7</td><td>55 – 59</td><td>2.0</td></tr>
+      <tr><td>75 – 79</td><td>3.3</td><td>50 – 54</td><td>1.7</td></tr>
+      <tr><td>70 – 74</td><td>3.0</td><td>45 – 49</td><td>1.0</td></tr>
+      <tr><td>65 – 69</td><td>2.7</td><td>Below 45</td><td>0.0</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="abroad">Why your converted score matters for study abroad</h2>
+  <p>Most universities in the USA, UK, Canada and Australia ask for your grades in their own format, and cut-offs for scholarships and programmes are often stated as a GPA or percentage. Knowing your converted score early helps you shortlist realistic universities and plan your documents.</p>
+  <p>If you are planning to study overseas from Gujarat, a trusted advisor can guide you on university selection, SOPs and visa documentation. Students looking for the <a href="https://postgradedu.com/" title="Best Student visa Consultant in Ahmedabad Gujarat">Best Student visa Consultant in Ahmedabad Gujarat</a> can speak with the PostGradEdu team for step-by-step admission and visa support.</p>
+
+  <aside class="cta" aria-label="Study abroad help">
+    <h2>Turn your score into a study abroad plan</h2>
+    <p>Share your CGPA or percentage and get help choosing universities, preparing documents and applying for your visa.</p>
+    <a class="btn" href="https://postgradedu.com/" title="Best Student visa Consultant in Ahmedabad Gujarat">Best Student visa Consultant in Ahmedabad Gujarat</a>
+  </aside>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <details><summary>How do I convert CGPA to percentage?</summary><p>For a 10-point CGPA, multiply by 9.5 (the CBSE method). Some universities use their own formulas, such as VTU and Mumbai University, which are included in the calculator above.</p></details>
+  <details><summary>How do I convert percentage to CGPA?</summary><p>Divide your percentage by 9.5. For example, 76% ÷ 9.5 gives a CGPA of 8.0.</p></details>
+  <details><summary>How do I convert an Indian percentage to a 4.0 GPA?</summary><p>There is no single official formula. Many applicants use grade bands like the table above. Universities and credential evaluators may assess your marks differently, so check their guidance.</p></details>
+  <details><summary>Which formula should I use for my university?</summary><p>Use the formula printed on your grade card or published by your university’s examination office. If neither exists, request an official conversion letter.</p></details>
+  <details><summary>Is this result accepted for admissions and visas?</summary><p>Treat it as an estimate. Admission offices and visa processes rely on official transcripts and, where required, an evaluation report.</p></details>
+</div>
+</main>
+
+<footer><div class="wrap">© <span id="yr">2026</span> SpaceHub Global. Free CGPA, percentage and GPA conversion for students. Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license">GPL-3.0</a>. <a href="https://github.com/spacehubglobal/cgpa-percentage-gpa-converter">Source code</a>.</div></footer>
+
+<script>
+(function(){
+  var mode='c2p';
+  var $=function(i){return document.getElementById(i)};
+  var cfg={
+    c2p:{lab:'Your CGPA (out of 10)',ph:'e.g. 8.2',out:'Percentage',max:10,f:true},
+    p2c:{lab:'Your percentage',ph:'e.g. 76',out:'CGPA (out of 10)',max:100},
+    p2g:{lab:'Your percentage',ph:'e.g. 72',out:'GPA (4.0 scale)',max:100},
+    c2g:{lab:'Your CGPA (out of 10)',ph:'e.g. 8.2',out:'GPA (4.0 scale)',max:10},
+    g2p:{lab:'Your GPA (out of 4.0)',ph:'e.g. 3.3',out:'Percentage (approx.)',max:4}
+  };
+  var bands=[[85,4.0],[80,3.7],[75,3.3],[70,3.0],[65,2.7],[60,2.3],[55,2.0],[50,1.7],[45,1.0],[0,0.0]];
+  var mid=[[4.0,90],[3.7,82],[3.3,77],[3.0,72],[2.7,67],[2.3,62],[2.0,57],[1.7,52],[1.0,47],[0,40]];
+  function gpa(p){for(var i=0;i<bands.length;i++){if(p>=bands[i][0])return bands[i][1]}return 0}
+  function c2p(c){var f=$('formula').value;
+    if(f==='vtu')return [(c-0.75)*10,'(CGPA − 0.75) × 10 = ('+c+' − 0.75) × 10'];
+    if(f==='mu')return [7.1*c+11,'7.1 × CGPA + 11 = 7.1 × '+c+' + 11'];
+    return [c*9.5,'CGPA × 9.5 = '+c+' × 9.5']}
+  function calc(){
+    var c=cfg[mode],raw=$('val').value,v=parseFloat(raw),err=$('err');
+    err.textContent='';
+    $('rlabel').textContent=c.out;
+    if(raw===''||isNaN(v)){$('res').textContent='–';$('rform').textContent='Enter a value to see your result.';return}
+    if(v<0||v>c.max){err.textContent='Enter a value between 0 and '+c.max+'.';$('res').textContent='–';$('rform').textContent='';return}
+    var r,f,u='';
+    if(mode==='c2p'){var x=c2p(v);r=x[0];f=x[1];u='%'}
+    else if(mode==='p2c'){r=v/9.5;f='Percentage ÷ 9.5 = '+v+' ÷ 9.5'}
+    else if(mode==='p2g'){r=gpa(v);f='Grade band for '+v+'% (see table below)'}
+    else if(mode==='c2g'){var p=v*9.5;r=gpa(p);f='CGPA × 9.5 = '+p.toFixed(1)+'%, then grade band'}
+    else{var n=mid[0];for(var i=0;i<mid.length;i++){if(Math.abs(mid[i][0]-v)<Math.abs(n[0]-v))n=mid[i]}r=n[1];f='Nearest grade band midpoint to '+v+' GPA';u='%'}
+    if(mode==='c2p'&&(r<0||r>100)){err.textContent='This formula gives a result outside 0–100%. Check your CGPA or formula.'}
+    $('res').innerHTML=(mode==='p2g'||mode==='c2g'?r.toFixed(1):r.toFixed(2).replace(/\.?0+$/,''))+(u?'<span>'+u+'</span>':'');
+    $('rform').textContent=f;
+  }
+  document.querySelectorAll('.modes button').forEach(function(b){
+    b.addEventListener('click',function(){
+      mode=b.getAttribute('data-m');
+      document.querySelectorAll('.modes button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      var c=cfg[mode];$('vlabel').textContent=c.lab;$('val').placeholder=c.ph;$('val').value='';
+      $('fwrap').style.display=c.f?'block':'none';calc();
+    });
+  });
+  $('val').addEventListener('input',calc);$('formula').addEventListener('change',calc);
+  $('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
